@@ -31,18 +31,15 @@ class Recaptcha {
         return request(requestObject).then(response => {
             let parsed = JSON.parse(response)
 
-            //const errorCodes = body['error-codes']
-            //
-            //const errorCodesList = Array.isArray(errorCodes)
-            //    ? errorCodes.join(', ')
-            //    : 'Unknown'
-            //
-            //return callback && callback(
-            //        new Error(`Failed to verify: ${errorCodesList}`)
-            //        , body
-            //    )
+            if (!parsed.success) {
+                let errorCodes = parsed['error-codes']
+                let error = new Error('failed to verify: ' + errorCodes.join(','))
+                error.errorCodes = errorCodes
 
-            return parsed.success || Promise.reject(new Error('unknown error with recaptcha'))
+                return Promise.reject(error)
+            }
+
+            return true
         })
     }
 }
