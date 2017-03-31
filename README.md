@@ -1,7 +1,7 @@
 # verify-recaptcha
 
 `verify-recaptcha` is a little library that handles the connection to the google verification backend.
-Features a possible proxy configuration and a promise backend.
+Features a optional proxy configuration and a promise backend.
 
 ## Installation
 
@@ -27,13 +27,13 @@ myVerification.validate('1234545')
 
 The constructor also accepts a proxy configuration in the following form:
 
-````json
+````javascript
 {
-    host: "host",
-    port: 1337,                 //optional, defaults to 80
-    username: "myUsername",     //optional
-    password: "myPassword",     //optional, required of username has been set
-    protocol: "https"           //optional, defaults to 'http'
+    "host": "host",
+    "port": 1337,                 //optional, defaults to 80
+    "username": "myUsername",     //optional
+    "password": "myPassword",     //optional, required of username has been set
+    "protocol": "https"           //optional, defaults to 'http'
 }
 ````
 
