@@ -12,7 +12,6 @@ class Recaptcha {
 
     validate(token) {
         let requestObject = {
-            method: 'POST',
             uri: URL,
             form: {
                 secret: this._secretkey,
@@ -20,15 +19,15 @@ class Recaptcha {
             }
         }
 
-        if (this.proxy) {
+        if (this._proxy) {
             let auth = this._proxy.username ? `${this._proxy.username}:${this._proxy.password}@` : ''
             let port = this._proxy.port ? `:${this._proxy.port}` : ''
-            let protocol = this._proxy.protocol || 'http://'
+            let protocol = (this._proxy.protocol || 'http') + '://'
 
             requestObject.proxy = `${protocol}${auth}${this._proxy.host}${port}`
         }
 
-        return request(requestObject).then(response => {
+        return request.post(requestObject).then(response => {
             let parsed = JSON.parse(response)
 
             if (!parsed.success) {
