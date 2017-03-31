@@ -1,6 +1,6 @@
 {
   "name": "verify-recaptcha",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "agent for the verification of recaptcha tokens",
   "main": "index.js",
   "scripts": {
