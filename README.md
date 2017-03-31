@@ -14,7 +14,8 @@ npm i verify-recaptcha
 ````javascript
 const VerifyRecaptcha = require('verify-recaptcha')
 
-let myVerification = new VerifyRecaptcha('8673cd022af7f5af00a07db3a95ffe74b245b0e8cc7d03657')
+let mySecret = '8673cad02e2af7ff5afc00a0b7d2b3a4951ffea74bc245bb0ee8cc7dd03f657'
+let myVerification = new VerifyRecaptcha(mySecret)
 
 myVerification.validate('1234545')
     .then(result => console.log('token verified!')
