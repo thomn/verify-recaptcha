@@ -7,7 +7,7 @@
     "test": "mocha test"
   },
   "keywords": [
-    "google"
+    "google",
     "recaptcha",
     "client",
     "serverside",
